@@ -35,10 +35,10 @@ def salvar_subrange(subrange_start, subrange_end):
     with open(log_file, 'a') as f:
         f.write(f"{datetime.now()}: {subrange_start}:{subrange_end}\n")
 
-# Função para executar o KeyHunt-Cuda
+# Função para executar o KeyHunt
 def executar_keyhunt(subrange_start, subrange_end):
     comando = [
-        "./KeyHunt-Cuda.exe", "--gpu", "-m", "address", address, 
+        "./KeyHunt", "--gpu", "-m", "address", address, 
         "--range", f"{subrange_start}:{subrange_end}", 
         "--coin", "BTC", "-o", output_file,
     ]
