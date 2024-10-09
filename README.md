@@ -17,10 +17,11 @@ sudo dpkg -i cuda-repo-wsl-ubuntu-12-6-local_12.6.2-1_amd64.deb
 sudo cp /var/cuda-repo-wsl-ubuntu-12-6-local/cuda-*-keyring.gpg /usr/share/keyrings/
 sudo apt-get update
 sudo apt-get -y install cuda-toolkit-12-6
+sudo apt install nvidia-cuda-toolkit
 ````
 Install libgm
 ````
-apt install -y libgmp-dev
+sudo apt install -y libgmp-dev
 ````
 Python 
 ````
