@@ -18,7 +18,8 @@
 #ifndef SHA512_H
 #define SHA512_H
 #include <string>
-#include <cstdint>
+#include <cstdint>  // Para uint8_t e uint64_t
+#include <cstddef>  // Para size_t
 
 
 void sha512(unsigned char *input, int length, unsigned char *digest);
