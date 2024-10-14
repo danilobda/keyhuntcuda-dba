@@ -10,7 +10,7 @@ end_range = int("7ffffffffffffffff", 16)
 total_subranges = 1000000
 address = "1BY8GQbnueYofwSuFAT3USAhGjPrkxDdW9"
 output_file = "67.txt"
-log_file = "ranges_verificados.txt"
+log_file = "ranges_verificados-67.tsv"
 
 # Tamanho de cada subrange
 subrange_size = (end_range - start_range) // total_subranges
