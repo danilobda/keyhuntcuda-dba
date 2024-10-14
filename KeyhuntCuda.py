@@ -7,7 +7,7 @@ from datetime import datetime
 # Parâmetros base
 start_range = int("40000000000000000", 16)
 end_range = int("7ffffffffffffffff", 16)
-total_subranges = 1000000
+total_subranges = 10000000
 address = "1BY8GQbnueYofwSuFAT3USAhGjPrkxDdW9"
 output_file = "67.txt"
 log_file = "ranges_verificados-67.tsv"
