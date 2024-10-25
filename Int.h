@@ -159,6 +159,7 @@ public:
 	void SetQWord(int n, uint64_t b);
 	void Rand(int nbit);
 	void Rand(Int* randMax);
+	void Rand(Int* randMin, Int* randMax);
 	void Set32Bytes(unsigned char* bytes);
 	void MaskByte(int n);
 

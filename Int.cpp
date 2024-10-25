@@ -1030,6 +1030,32 @@ void Int::Rand(Int* randMax) {
 
 }
 
+void Int::Rand(Int* randMin, Int* randMax) {
+    // Calcula a diferença entre o máximo e o mínimo
+    Int range;
+    range.Sub(randMax, randMin);
+
+    // Gera um número aleatório no intervalo [0, range)
+    Int randomValue;
+    randomValue.Rand(&range);
+
+    // Soma o valor mínimo ao número aleatório para garantir que esteja no intervalo [randMin, randMax)
+    randomValue.Add(randMin);
+
+    // Converte o valor gerado para uma string hexadecimal
+    std::string hexValue = randomValue.GetBase16().c_str();
+
+    // Substitui os últimos 5 dígitos por '0'
+    hexValue.replace(hexValue.length() - 5, 5, "00000");
+
+    // Define o valor gerado com os últimos 5 dígitos zerados
+    randomValue.SetBase16(hexValue.c_str());
+
+    // Define o valor no objeto atual
+    Set(&randomValue);
+}
+
+
 // ------------------------------------------------
 
 void Int::Div(Int* a, Int* mod) {

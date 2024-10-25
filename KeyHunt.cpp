@@ -298,6 +298,8 @@ bool KeyHunt::checkPrivKey(std::string addr, Int& key, int32_t incr, bool mode)
 			printf("  Check:%s\n", chkAddr.c_str());
 			printf("  PubX :%s\n", p.x.GetBase16().c_str());
 			printf("=================================================================================\n");
+			output(addr, secp->GetPrivAddress(mode, k) , k.GetBase16(), k2.GetBase16());
+			
 			return false;
 		}
 	}
@@ -846,10 +848,48 @@ void KeyHunt::getGPUStartingKeys(Int & tRangeStart, Int & tRangeEnd, int groupSi
 		tRangeEnd2.Set(&tRangeStart2);
 		tRangeEnd2.Add(&tRangeDiff);
 
-		if (rKey <= 0)
+		if (rKey <= 0){
 			keys[i].Set(&tRangeStart2);
-		else
-			keys[i].Rand(&tRangeEnd2);
+			if (i < 30) {
+				// Testa os primeiros 30 elementos
+				// Adicione o código para testar aqui
+				printf("testando  : %s ", keys[i].GetBase16().c_str());
+			}
+			else if (i >= nbThread - 30) {
+				// Testa os últimos 30 elementos
+				// Adicione o código para testar aqui
+				printf("testando  : %s ", keys[i].GetBase16().c_str());
+				
+			}
+		}
+		else{
+			keys[i].Rand(&tRangeStart2,&tRangeEnd2);
+
+			if (i < 30) {
+				// Testa os primeiros 30 elementos
+				// Adicione o código para testar aqui
+				printf("testando  : %s ", keys[i].GetBase16().c_str());
+			}
+			else if (i >= nbThread - 30) {
+				// Testa os últimos 30 elementos
+				// Adicione o código para testar aqui
+				printf("testando  : %s ", keys[i].GetBase16().c_str());
+				
+			}
+/*
+			if (i == nbThread -1 ) {
+				// Este é o último elemento
+				std::string hexValue = "2832ED74F2B500000";  // Exemplo de valor hexadecimal
+				Int myInt;
+				myInt.SetBase16(hexValue.c_str());  // Usa o método SetBase16 para definir o valor hexadecimal
+				keys[i].Set(&myInt);  // Define o valor em keys[i] usando o objeto myInt
+
+			}
+/*
+			if (std::string(keys[i].GetBase16().c_str()).find("122FCA") == 0) {
+				printf("testando  : %s \r\r\n\n", keys[i].GetBase16().c_str());
+			}*/
+		}
 
 		tRangeStart2.Add(&tRangeDiff);
 
